@@ -1,0 +1,8 @@
+google-cloud-aiplatform >= 1.38.1
+google-generativeai  >= 0.3.2
+llama-index >=  0.9.19
+litellm >= 1.15.3
+flask >= 2.2.5
+flask-cors >=               4.0.0
+pillow  => 10.1.0
+trulens-eval >= 0.19.2
