@@ -1,14 +1,22 @@
 import React from "react";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Image from "next/image";
+import Logo from "../../assets/images/speack.png";
+
 
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg "  style={{background : "none !important"}}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
+          <a className="navbar-brand mx-auto" href="#">
+            <span>
+              <Image
+                src={Logo}
+                alt="Picture of the author"
+              ></Image>
+            </span>
           </a>
           <button
             className="navbar-toggler"
@@ -22,7 +30,7 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto  mb-lg-0">
+            <ul className="navbar-nav ms-auto  mb-lg-0">
               <li className="nav-item">
                 <Link
                   className="nav-link active"
@@ -53,17 +61,6 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
-            {/* <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form> */}
           </div>
         </div>
       </nav>
