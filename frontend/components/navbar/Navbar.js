@@ -10,7 +10,7 @@ export default function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg "  style={{background : "none !important"}}>
         <div className="container-fluid">
-          <a className="navbar-brand mx-auto" href="#">
+          <a className="navbar-brand" href="#">
             <span>
               <Image
                 src={Logo}
