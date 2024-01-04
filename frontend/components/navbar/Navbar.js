@@ -4,18 +4,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "next/image";
 import Logo from "../../assets/images/speack.png";
 
-
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg "  style={{background : "none !important"}}>
+      <nav
+        className="navbar navbar-expand-lg "
+        style={{ background: "none !important" }}
+      >
         <div className="container-fluid">
           <a className="navbar-brand mx-auto" href="#">
             <span>
-              <Image
-                src={Logo}
-                alt="Picture of the author"
-              ></Image>
+              <Image src={Logo} alt="Picture of the author"></Image>
             </span>
           </a>
           <button
@@ -54,7 +53,7 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link
                   className="nav-link active"
-                  href="/login"
+                  href="/login/signup"
                   style={{ textDecoration: "none", color: "black" }}
                 >
                   Login

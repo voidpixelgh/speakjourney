@@ -1,15 +1,25 @@
 import React from "react";
-import classes from "./signup/Signup.module.css";
+import classes from "./Signup.module.css";
 import Link from "next/link";
 
-export default function Login() {
+export default function page() {
   return (
     <div className={classes.container}>
       <div className={classes["form_area"]}>
-        <p className={classes.title}>LOG IN</p>
+        <p className={classes.title}>SIGN UP</p>
         <form action="">
           <div className={classes["form_group"]}>
-            <label className={classes["sub_title"]} htmlFor="email">
+            <label className={classes["sub_title"]} for="name">
+              Name
+            </label>
+            <input
+              placeholder="Enter your full name"
+              className={classes["form_style"]}
+              type="text"
+            />
+          </div>
+          <div className={classes["form_group"]}>
+            <label className={classes["sub_title"]} for="email">
               Email
             </label>
             <input
@@ -20,7 +30,7 @@ export default function Login() {
             />
           </div>
           <div className={classes["form_group"]}>
-            <label className={classes["sub_title"]} htmlFor="password">
+            <label className={classes["sub_title"]} for="password">
               Password
             </label>
             <input
@@ -31,11 +41,11 @@ export default function Login() {
             />
           </div>
           <div>
-            <button className={classes.btn}>LOG IN</button>
+            <button className={classes.btn}>SIGN UP</button>
             <p>
-              Don't have an Account?
-              <Link className={classes.link} href="/login/signup">
-                SignUp Here!
+              Have an Account?
+              <Link className={classes.link} href="/login">
+                Login Here!
               </Link>
             </p>
           </div>
