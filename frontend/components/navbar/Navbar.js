@@ -53,7 +53,7 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link
                   className="nav-link active"
-                  href="/login/signup"
+                  href="/login"
                   style={{ textDecoration: "none", color: "black" }}
                 >
                   Login

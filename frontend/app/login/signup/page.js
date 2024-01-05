@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import classes from "./Signup.module.css";
 import Link from "next/link";
 
