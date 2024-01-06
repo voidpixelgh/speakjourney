@@ -1,4 +1,5 @@
 import CredentialsProvider from "next-auth/providers/credentials";
+import { prisma } from "@/config/prisma";
 
 export const options = {
   providers: [
@@ -9,8 +10,19 @@ export const options = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        console.log(credentials);
-        const user = { id: "1", name: "J Smith", email: "jsmith@example.com" };
+        const user = await prisma.users.findFirst({
+          where: {
+            AND: [
+              {
+                email: credentials.email,
+              },
+              {
+                password: credentials.password,
+              },
+            ],
+          },
+        });
+
         if (user) {
           return user;
         } else {
@@ -19,14 +31,8 @@ export const options = {
       },
     }),
   ],
-  jwt: {
-    signingKey: { kty: "oct", kid: "--", alg: "HS256", k: "--" },
-    verificationOptions: {
-      algorithms: ["HS256"],
-    },
+  secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: "/login",
   },
-  secret: process.env.NO_SECRET,
-  //   pages: {
-  //     signIn: "/login",
-  //   },
 };

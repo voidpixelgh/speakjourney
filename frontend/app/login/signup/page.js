@@ -3,9 +3,11 @@ import { useState } from "react";
 import classes from "./Signup.module.css";
 import Link from "next/link";
 import useInput from "@/hooks/use-inputs";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 export default function page() {
   const [isLoading, setisLoading] = useState(false);
-
+  const router = useRouter();
   const {
     enteredValue: enteredEmail,
     isValid: emailIsValid,
@@ -62,19 +64,18 @@ export default function page() {
         "http://localhost:3000/api/users",
         requestOptions
       );
+      const successMess = await res.json();
 
       if (!res.ok) {
-        throw new Error("error");
+        throw new Error(successMess.message);
       }
-
       emailReset();
       resetName();
       resetPassword();
-
-      const successMess = await res.json();
-      return alert(successMess.message);
+      router.push("/login");
+      toast.success(successMess.message);
     } catch (error) {
-      console.log("error:", error.message);
+      toast.error(error.message);
     } finally {
       setisLoading(false);
     }
